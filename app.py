@@ -1,9 +1,15 @@
 import numpy as np
 import pickle
 import streamlit as st
+import os
 
 # loading the saved model
-loaded_model = pickle.load(open('trained_model.sav', 'rb'))
+# loaded_model = pickle.load(open('trained_model.sav', 'rb'))
+current_dir = os.path.dirname(__file__)
+model_path = os.path.join(current_dir, 'trained_model.sav')
+
+with open(model_path, 'rb') as file:
+    loaded_model = pickle.load(file)
 
 
 # creating a function for Prediction
